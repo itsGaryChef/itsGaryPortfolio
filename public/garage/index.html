@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gary's Lowrider Garage</title>
-    <script type="module" crossorigin src="/garage/assets/index-DP7AD9QY.js"></script>
-    <link rel="stylesheet" crossorigin href="/garage/assets/index-T6ahoCh9.css">
-    <link rel="stylesheet" href="/garage/mobile-controls.css">
+    <title>Lowrider Browser Test</title>
+    <script type="module" crossorigin src="./assets/index-BULrRsVn.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Crkgpacx.css">
   </head>
   <body>
     <main id="app">
@@ -14,38 +13,62 @@
       <section class="status" aria-live="polite">
         <p class="eyebrow">BROWSER RIG TEST</p>
         <h1>Monte Carlo</h1>
-        <p id="load-status">Loading car&hellip;</p>
+        <p id="load-status">Loading car…</p>
       </section>
       <aside class="settings" aria-label="Hydraulics tuning">
         <button class="settings__toggle" type="button" aria-expanded="false" aria-controls="settings-panel">
-          <span>&#9881;</span> TUNE RIG
+          <span>⚙</span> TUNE RIG
         </button>
         <div class="settings__panel" id="settings-panel" hidden>
-          <p class="settings__title">Live hydraulics</p>
-          <label>Hop intensity <output data-output="hopIntensity">100%</output><input data-setting="hopIntensity" type="range" min="0.5" max="4" value="1" step="0.05"></label>
-          <label>Front travel <output data-output="frontTravel">75%</output><input data-setting="frontTravel" type="range" min="0.3" max="3" value="0.75" step="0.05"></label>
-          <label>Rear travel <output data-output="rearTravel">85%</output><input data-setting="rearTravel" type="range" min="0.3" max="3" value="0.85" step="0.05"></label>
-          <label>Spring damping <output data-output="springDamping">6.6</output><input data-setting="springDamping" type="range" min="1" max="18" value="6.6" step="0.2"></label>
-          <label>Spring stiffness <output data-output="springStiffness">58</output><input data-setting="springStiffness" type="range" min="15" max="160" value="58" step="1"></label>
-          <p class="settings__future">Garage slots for cars, wheels, and accessories are next.</p>
+          <div class="settings__tabs" role="tablist" aria-label="Rig controls">
+            <button class="settings__tab active" type="button" role="tab" aria-selected="true" aria-controls="hydraulics-tab" data-tab="hydraulics">HYDRAULICS</button>
+            <button class="settings__tab" type="button" role="tab" aria-selected="false" aria-controls="paint-tab" data-tab="paint">PAINT</button>
+          </div>
+          <div id="hydraulics-tab" class="settings__tab-panel" role="tabpanel">
+            <p class="settings__title">Live hydraulics</p>
+            <label>Hop intensity <output data-output="hopIntensity">100%</output><input data-setting="hopIntensity" type="range" min="0.5" max="4" value="1" step="0.05"></label>
+            <label>Front travel <output data-output="frontTravel">75%</output><input data-setting="frontTravel" type="range" min="0.3" max="3" value="0.75" step="0.05"></label>
+            <label>Rear travel <output data-output="rearTravel">85%</output><input data-setting="rearTravel" type="range" min="0.3" max="3" value="0.85" step="0.05"></label>
+            <label>Spring damping <output data-output="springDamping">6.6</output><input data-setting="springDamping" type="range" min="1" max="18" value="6.6" step="0.2"></label>
+            <label>Spring stiffness <output data-output="springStiffness">58</output><input data-setting="springStiffness" type="range" min="15" max="160" value="58" step="1"></label>
+            <p class="settings__future">Garage slots for cars, wheels, and accessories are next.</p>
+          </div>
+          <div id="paint-tab" class="settings__tab-panel" role="tabpanel" hidden>
+            <p class="settings__title">Paint studio</p>
+            <p class="paint__help">Select one of this car’s primary material maps.</p>
+            <div class="paint__maps" role="group" aria-label="Paint material maps">
+              <button class="paint__map active" type="button" data-paint-target="body"><i></i>BODY PAINT</button>
+              <button class="paint__map" type="button" data-paint-target="accent"><i></i>ACCENT STRIPE</button>
+              <button class="paint__map" type="button" data-paint-target="trim"><i></i>BRIGHTWORK</button>
+            </div>
+            <label class="paint__color">RGB color <input id="paint-color" type="color" value="#c69625" aria-label="RGB paint color"></label>
+            <label>Roughness <output id="paint-roughness-output">28%</output><input id="paint-roughness" type="range" min="0" max="1" value="0.28" step="0.01"></label>
+            <p class="paint__label">Finish</p>
+            <div class="paint__finishes" role="group" aria-label="Paint finish">
+              <button class="active" type="button" data-paint-finish="gloss">GLOSS</button>
+              <button type="button" data-paint-finish="matte">MATTE</button>
+              <button type="button" data-paint-finish="metallic">METALLIC</button>
+              <button type="button" data-paint-finish="iridescent">IRIDESCENT</button>
+            </div>
+          </div>
         </div>
       </aside>
       <section class="switchbox" aria-label="Lowrider hydraulic switchbox">
         <div class="switchbox__brand"><span>MONTE</span> HYDRAULICS</div>
-        <p class="switchbox__hint">Hold top to raise &middot; bottom to lower</p>
+        <p class="switchbox__hint">Hold top to raise · bottom to lower</p>
         <div class="switchgrid">
-          <div class="switch"><span>FL</span><button data-action="fl" data-direction="1">&#9650;</button><button data-action="fl" data-direction="-1">&#9660;</button><button class="hop" data-hop="fl">HOP</button></div>
-          <div class="switch"><span>FRONT</span><button data-action="front" data-direction="1">&#9650;</button><button data-action="front" data-direction="-1">&#9660;</button><button class="hop" data-hop="front">HOP</button></div>
-          <div class="switch"><span>FR</span><button data-action="fr" data-direction="1">&#9650;</button><button data-action="fr" data-direction="-1">&#9660;</button><button class="hop" data-hop="fr">HOP</button></div>
-          <div class="switch"><span>LEFT</span><button data-action="left" data-direction="1">&#9650;</button><button data-action="left" data-direction="-1">&#9660;</button><button class="hop" data-hop="left">HOP</button></div>
-          <div class="switch"><span>ALL</span><button data-action="all" data-direction="1">&#9650;</button><button data-action="all" data-direction="-1">&#9660;</button><button class="hop" data-hop="all">HOP</button></div>
-          <div class="switch"><span>RIGHT</span><button data-action="right" data-direction="1">&#9650;</button><button data-action="right" data-direction="-1">&#9660;</button><button class="hop" data-hop="right">HOP</button></div>
-          <div class="switch"><span>RL</span><button data-action="rl" data-direction="1">&#9650;</button><button data-action="rl" data-direction="-1">&#9660;</button><button class="hop" data-hop="rl">HOP</button></div>
-          <div class="switch"><span>REAR</span><button data-action="rear" data-direction="1">&#9650;</button><button data-action="rear" data-direction="-1">&#9660;</button><button class="hop" data-hop="rear">HOP</button></div>
-          <div class="switch"><span>RR</span><button data-action="rr" data-direction="1">&#9650;</button><button data-action="rr" data-direction="-1">&#9660;</button><button class="hop" data-hop="rr">HOP</button></div>
+          <div class="switch"><span>FL</span><button data-action="fl" data-direction="1">▲</button><button data-action="fl" data-direction="-1">▼</button><button class="hop" data-hop="fl">HOP</button></div>
+          <div class="switch"><span>FRONT</span><button data-action="front" data-direction="1">▲</button><button data-action="front" data-direction="-1">▼</button><button class="hop" data-hop="front">HOP</button></div>
+          <div class="switch"><span>FR</span><button data-action="fr" data-direction="1">▲</button><button data-action="fr" data-direction="-1">▼</button><button class="hop" data-hop="fr">HOP</button></div>
+          <div class="switch"><span>LEFT</span><button data-action="left" data-direction="1">▲</button><button data-action="left" data-direction="-1">▼</button><button class="hop" data-hop="left">HOP</button></div>
+          <div class="switch"><span>ALL</span><button data-action="all" data-direction="1">▲</button><button data-action="all" data-direction="-1">▼</button><button class="hop" data-hop="all">HOP</button></div>
+          <div class="switch"><span>RIGHT</span><button data-action="right" data-direction="1">▲</button><button data-action="right" data-direction="-1">▼</button><button class="hop" data-hop="right">HOP</button></div>
+          <div class="switch"><span>RL</span><button data-action="rl" data-direction="1">▲</button><button data-action="rl" data-direction="-1">▼</button><button class="hop" data-hop="rl">HOP</button></div>
+          <div class="switch"><span>REAR</span><button data-action="rear" data-direction="1">▲</button><button data-action="rear" data-direction="-1">▼</button><button class="hop" data-hop="rear">HOP</button></div>
+          <div class="switch"><span>RR</span><button data-action="rr" data-direction="1">▲</button><button data-action="rr" data-direction="-1">▼</button><button class="hop" data-hop="rr">HOP</button></div>
         </div>
       </section>
-      <p class="hint">Drag to orbit &middot; Scroll to zoom &middot; Right-drag to pan</p>
+      <p class="hint">Drag to orbit · Scroll to zoom · Right-drag to pan</p>
     </main>
   </body>
 </html>
