@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gary's Lowrider Garage</title>
+    <script type="module" crossorigin src="/garage/assets/index-D_PesJzH.js"></script>
+    <link rel="stylesheet" crossorigin href="/garage/assets/index-T6ahoCh9.css">
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="scene" aria-label="Interactive lowrider model"></canvas>
+      <section class="status" aria-live="polite">
+        <p class="eyebrow">BROWSER RIG TEST</p>
+        <h1>Monte Carlo</h1>
+        <p id="load-status">Loading car…</p>
+      </section>
+      <aside class="settings" aria-label="Hydraulics tuning">
+        <button class="settings__toggle" type="button" aria-expanded="false" aria-controls="settings-panel">
+          <span>⚙</span> TUNE RIG
+        </button>
+        <div class="settings__panel" id="settings-panel" hidden>
+          <p class="settings__title">Live hydraulics</p>
+          <label>Hop intensity <output data-output="hopIntensity">100%</output><input data-setting="hopIntensity" type="range" min="0.5" max="4" value="1" step="0.05"></label>
+          <label>Front travel <output data-output="frontTravel">75%</output><input data-setting="frontTravel" type="range" min="0.3" max="3" value="0.75" step="0.05"></label>
+          <label>Rear travel <output data-output="rearTravel">85%</output><input data-setting="rearTravel" type="range" min="0.3" max="3" value="0.85" step="0.05"></label>
+          <label>Spring damping <output data-output="springDamping">6.6</output><input data-setting="springDamping" type="range" min="1" max="18" value="6.6" step="0.2"></label>
+          <label>Spring stiffness <output data-output="springStiffness">58</output><input data-setting="springStiffness" type="range" min="15" max="160" value="58" step="1"></label>
+          <p class="settings__future">Garage slots for cars, wheels, and accessories are next.</p>
+        </div>
+      </aside>
+      <section class="switchbox" aria-label="Lowrider hydraulic switchbox">
+        <div class="switchbox__brand"><span>MONTE</span> HYDRAULICS</div>
+        <p class="switchbox__hint">Hold top to raise · bottom to lower</p>
+        <div class="switchgrid">
+          <div class="switch"><span>FL</span><button data-action="fl" data-direction="1">▲</button><button data-action="fl" data-direction="-1">▼</button><button class="hop" data-hop="fl">HOP</button></div>
+          <div class="switch"><span>FRONT</span><button data-action="front" data-direction="1">▲</button><button data-action="front" data-direction="-1">▼</button><button class="hop" data-hop="front">HOP</button></div>
+          <div class="switch"><span>FR</span><button data-action="fr" data-direction="1">▲</button><button data-action="fr" data-direction="-1">▼</button><button class="hop" data-hop="fr">HOP</button></div>
+          <div class="switch"><span>LEFT</span><button data-action="left" data-direction="1">▲</button><button data-action="left" data-direction="-1">▼</button><button class="hop" data-hop="left">HOP</button></div>
+          <div class="switch"><span>ALL</span><button data-action="all" data-direction="1">▲</button><button data-action="all" data-direction="-1">▼</button><button class="hop" data-hop="all">HOP</button></div>
+          <div class="switch"><span>RIGHT</span><button data-action="right" data-direction="1">▲</button><button data-action="right" data-direction="-1">▼</button><button class="hop" data-hop="right">HOP</button></div>
+          <div class="switch"><span>RL</span><button data-action="rl" data-direction="1">▲</button><button data-action="rl" data-direction="-1">▼</button><button class="hop" data-hop="rl">HOP</button></div>
+          <div class="switch"><span>REAR</span><button data-action="rear" data-direction="1">▲</button><button data-action="rear" data-direction="-1">▼</button><button class="hop" data-hop="rear">HOP</button></div>
+          <div class="switch"><span>RR</span><button data-action="rr" data-direction="1">▲</button><button data-action="rr" data-direction="-1">▼</button><button class="hop" data-hop="rr">HOP</button></div>
+        </div>
+      </section>
+      <p class="hint">Drag to orbit · Scroll to zoom · Right-drag to pan</p>
+    </main>
+  </body>
+</html>
