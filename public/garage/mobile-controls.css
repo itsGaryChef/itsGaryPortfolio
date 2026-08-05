@@ -1,0 +1,10 @@
+.switchbox,
+.switchbox * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.switchbox button {
+  touch-action: manipulation;
+}
