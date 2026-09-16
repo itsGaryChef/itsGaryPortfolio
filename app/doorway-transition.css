@@ -1,0 +1,97 @@
+.discover {
+  appearance: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.game-shell.is-traveling .game-canvas {
+  animation: doorway-camera-rush 1.45s cubic-bezier(.22,.7,.18,1) both;
+}
+
+.game-shell.is-traveling .game-header,
+.game-shell.is-traveling .controls,
+.game-shell.is-traveling .touch-controls,
+.game-shell.is-traveling .objective,
+.game-shell.is-traveling .discover {
+  opacity: 0;
+  transition: opacity .22s ease;
+  pointer-events: none;
+}
+
+.doorway-transition {
+  position: absolute;
+  z-index: 30;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 52%, rgba(255,245,225,.86) 0 7%, rgba(233,191,112,.44) 15%, rgba(24,10,14,.3) 47%, rgba(8,7,8,.74) 100%);
+  animation: doorway-darken 1.45s ease-in both;
+}
+
+.doorway-transition::before,
+.doorway-transition::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  left: 50%;
+  top: 50%;
+  width: min(34vw, 430px);
+  height: min(68vh, 680px);
+  border: max(12px, 1.6vmin) solid #f0d49a;
+  box-shadow: 0 0 40px #e7ba71, inset 0 0 42px #ffd980;
+  transform: translate(-50%, -50%) scale(.2);
+  animation: doorway-aperture 1.45s cubic-bezier(.12,.72,.2,1) both;
+}
+
+.doorway-transition::after {
+  border-color: rgba(255,248,236,.88);
+  box-shadow: 0 0 80px 18px #fff0c8;
+  animation-delay: .13s;
+}
+
+.doorway-transition span {
+  position: relative;
+  z-index: 1;
+  margin-top: 18vh;
+  color: #fff5e8;
+  font: italic clamp(18px,2.4vw,34px) Georgia, serif;
+  text-shadow: 0 2px 22px #c8a66d;
+  opacity: 0;
+  animation: doorway-label 1.45s ease both;
+}
+
+@keyframes doorway-camera-rush {
+  0% { transform: scale(1); filter: brightness(1) saturate(1); }
+  58% { transform: scale(1.22); filter: brightness(1.3) saturate(1.18) blur(.6px); }
+  100% { transform: scale(1.52); filter: brightness(1.95) saturate(.65) blur(2px); }
+}
+
+@keyframes doorway-aperture {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.2); }
+  16% { opacity: .9; }
+  84% { opacity: 1; transform: translate(-50%, -50%) scale(2.05); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(3.2); }
+}
+
+@keyframes doorway-darken {
+  0% { opacity: 0; }
+  22% { opacity: .28; }
+  100% { opacity: .84; }
+}
+
+@keyframes doorway-label {
+  0%,22% { opacity: 0; transform: translateY(8px); }
+  48%,74% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-shell.is-traveling .game-canvas,
+  .doorway-transition,
+  .doorway-transition::before,
+  .doorway-transition::after,
+  .doorway-transition span { animation-duration: .01ms; }
+}
