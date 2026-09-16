@@ -5,7 +5,8 @@
   font: inherit;
 }
 
-.game-shell.is-traveling .game-canvas {
+.game-shell.is-traveling .game-canvas,
+.doorway-traveling main {
   animation: doorway-camera-rush 1.45s cubic-bezier(.22,.7,.18,1) both;
 }
 
@@ -20,14 +21,14 @@
 }
 
 .doorway-transition {
-  position: absolute;
-  z-index: 30;
+  position: fixed;
+  z-index: 10000;
   inset: 0;
   display: grid;
   place-items: center;
   overflow: hidden;
-  pointer-events: none;
-  background: radial-gradient(ellipse at 50% 52%, rgba(255,245,225,.86) 0 7%, rgba(233,191,112,.44) 15%, rgba(24,10,14,.3) 47%, rgba(8,7,8,.74) 100%);
+  pointer-events: auto;
+  background: radial-gradient(ellipse at 50% 52%, rgba(216,255,255,.86) 0 7%, rgba(73,199,202,.44) 15%, rgba(10,24,30,.3) 47%, rgba(4,12,18,.74) 100%);
   animation: doorway-darken 1.45s ease-in both;
 }
 
@@ -40,15 +41,15 @@
   top: 50%;
   width: min(34vw, 430px);
   height: min(68vh, 680px);
-  border: max(12px, 1.6vmin) solid #f0d49a;
-  box-shadow: 0 0 40px #e7ba71, inset 0 0 42px #ffd980;
+  border: max(12px, 1.6vmin) solid #69d9e3;
+  box-shadow: 0 0 40px #49c7ca, inset 0 0 42px #8eeaf4;
   transform: translate(-50%, -50%) scale(.2);
   animation: doorway-aperture 1.45s cubic-bezier(.12,.72,.2,1) both;
 }
 
 .doorway-transition::after {
-  border-color: rgba(255,248,236,.88);
-  box-shadow: 0 0 80px 18px #fff0c8;
+  border-color: rgba(220,255,255,.88);
+  box-shadow: 0 0 80px 18px #a5edf6;
   animation-delay: .13s;
 }
 
@@ -56,9 +57,9 @@
   position: relative;
   z-index: 1;
   margin-top: 18vh;
-  color: #fff5e8;
+  color: #e1ffff;
   font: italic clamp(18px,2.4vw,34px) Georgia, serif;
-  text-shadow: 0 2px 22px #c8a66d;
+  text-shadow: 0 2px 22px #49c7ca;
   opacity: 0;
   animation: doorway-label 1.45s ease both;
 }
@@ -90,6 +91,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .game-shell.is-traveling .game-canvas,
+  .doorway-traveling main,
   .doorway-transition,
   .doorway-transition::before,
   .doorway-transition::after,
