@@ -4,8 +4,10 @@
 
 @media (max-width: 680px) {
   .beat-kitchen-shell .play-exit {
-    top: calc(14px + env(safe-area-inset-top));
-    right: 12px;
+    top: auto;
+    right: auto;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    left: 12px;
     min-width: 82px;
     padding: 11px 10px;
     font-size: 0;
