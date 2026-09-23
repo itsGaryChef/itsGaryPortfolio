@@ -14,6 +14,7 @@ const content: Record<string, RoomContent> = {
     subtitle: "Gameplay + Playable Experience",
     intro: "Step into Gary's browser-based social bowling world. Choose a character, explore four lanes, bowl a full game, use social emotes, or capture the venue in drone photo mode.",
     gameLinks: [
+      { href: "/beat-kitchen", heading: "The Beat Kitchen is open.", detail: "Play piano melodies · Build four-track loops · Tap drums and shape your own beat", label: "Enter the Beat Kitchen →" },
       { href: "/garage", heading: "The garage is open.", detail: "Tune the Monte Carlo hydraulics · Drag to orbit · Scroll to zoom", label: "Enter the garage →" },
       { href: "/play", heading: "Bowling is open.", detail: "WASD to move · Mouse to look · E to interact", label: "Enter the alley →" },
     ],

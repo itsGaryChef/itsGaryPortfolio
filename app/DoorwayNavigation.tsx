@@ -6,7 +6,7 @@ import "./doorway-transition.css";
 const rooms: Record<string, string> = {
   "/": "The Dining Room", "/gallery": "The Gallery", "/kitchen": "The Kitchen",
   "/arcade": "The Arcade", "/shop": "Gift Shop", "/ai-studio": "The AI Studio",
-  "/play": "The Bowling Alley", "/garage": "The Garage",
+  "/play": "The Bowling Alley", "/garage": "The Garage", "/beat-kitchen": "The Beat Kitchen",
 };
 
 export default function DoorwayNavigation() {
