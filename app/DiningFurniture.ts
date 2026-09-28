@@ -89,8 +89,9 @@ export function addDiningFurniture(scene: THREE.Scene, renderer: THREE.WebGLRend
   // Low-profile rug binding breaks up the formerly flat red disc.
   const rugFabric=surfaceTexture("weave");rugFabric.repeat.set(36,36);
   const rugMaterial=new THREE.MeshStandardMaterial({color:0x531f2a,map:rugFabric,roughness:1,bumpMap:rugFabric,bumpScale:.003});materials.push(rugMaterial);
-  const rug=mesh(root,new THREE.CircleGeometry(4.25,96),rugMaterial,0,.008,0);rug.rotation.x=-Math.PI/2;rug.castShadow=false;
-  for(const radius of [4.13,4.20]){const binding=mesh(root,new THREE.TorusGeometry(radius,.012,6,96),seam,0,.012,0);binding.rotation.x=Math.PI/2;binding.castShadow=false;}
+  const rugCenterZ=2.7;
+  const rug=mesh(root,new THREE.CircleGeometry(4.25,96),rugMaterial,0,.008,rugCenterZ);rug.rotation.x=-Math.PI/2;rug.castShadow=false;
+  for(const radius of [4.13,4.20]){const binding=mesh(root,new THREE.TorusGeometry(radius,.012,6,96),seam,0,.012,rugCenterZ);binding.rotation.x=Math.PI/2;binding.castShadow=false;}
   const shadowCanvas = document.createElement("canvas"); shadowCanvas.width=shadowCanvas.height=128;
   const sc=shadowCanvas.getContext("2d")!, gradient=sc.createRadialGradient(64,64,8,64,64,64);
   gradient.addColorStop(0,"rgba(0,0,0,.36)");gradient.addColorStop(.55,"rgba(0,0,0,.18)");gradient.addColorStop(1,"rgba(0,0,0,0)");
